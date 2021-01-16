@@ -48,5 +48,10 @@ app.post('/register', (req,res) => {
     .catch((err) => {
         console.error(err);
     });
-
 });
+
+app.get('/:id', (req,res)=> {
+    Address.findById(req.params.id, (err,address)=>{
+        res.send(address);
+    })
+})
